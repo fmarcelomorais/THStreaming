@@ -28,9 +28,41 @@ body{
     padding: 10px;
     border: 1px solid #fff;
     border-radius: 10px;
-    background-color: #fff;
+    background-color: #ffffff;
     box-shadow: 5px 5px 10px #000;
 }
 .planos{
     display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    
+}
+.plano{
+    padding: 10px; 
+    box-shadow: 2px 2px 5px #000; 
+    background-color: #FFF; 
+    border-radius: 5px;
+    margin: 5PX;
+}
+.plano h3{
+    border: 1px solid blueviolet;
+    padding: 3px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px #000;
+    font-size: 2.5rem;
+    color: rgb(255, 255, 255);
+    font-family: sans-serif;
+    text-align: center;
+    font-weight: 600;
+    background-color:blueviolet;
+}
+
+footer{
+    padding: 20px;
+    background-color: #fff;
+}
+.rodape p{
+    font-size: 1.3rem;
+    color: blueviolet;
+    text-align: center;
 }
