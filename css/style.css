@@ -1,18 +1,21 @@
 body{
     box-sizing: border-box;
     background-color: blueviolet;
+    margin: 0;
+    padding: 0;
 }
 .topo{
     background-color: rgb(255, 255, 255);
-    padding: 5px;
+    /* padding: 5px; */
 }
 .banner-1{
     background-image: url('../assets/images/img-1.jpg');
-    background-attachment: scroll;
-    background-size: cover;
-   /*  width: 100vw; */
-    height: 60vh;
-    color: #fff
+   /*  background-attachment: scroll; */
+    background-size:cover;
+    max-width: 100vw;
+    height: 100vh;
+    color: #fff;
+    box-shadow: 5px 5px 10px #000;
 }
 .banner-1 h2{
     color: #fff;
