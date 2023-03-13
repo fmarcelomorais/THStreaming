@@ -7,6 +7,10 @@ body{
 .topo{
     background-color: rgb(255, 255, 255);
     /* padding: 5px; */
+    color: chartreuse;
+}
+.menu{
+  font-size: 1.3rem;  
 }
 .banner-1{
     display: flex;
