@@ -35,14 +35,19 @@ body{
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
+    max-width: 100vw;
     
 }
 .plano{
-    padding: 10px; 
+    
+    padding: 5px; 
     box-shadow: 2px 2px 5px #000; 
     background-color: #FFF; 
     border-radius: 5px;
-    margin: 5PX;
+    margin: 5px;
+    width: 25rem;
+    
+
 }
 .plano h3{
     border: 1px solid blueviolet;
@@ -55,6 +60,11 @@ body{
     text-align: center;
     font-weight: 600;
     background-color:blueviolet;
+}
+.plano img{
+  width: 60%;  
+  align-self: center;
+
 }
 
 footer{
