@@ -1,3 +1,4 @@
+import QRCode from "./qrcode.js";
 
 const IDPAYLOADFORMATINDICATOR = '00';
 const IDMERCHANTACCOUNTINFORMATION = '26';
@@ -23,6 +24,7 @@ const valor = document.getElementById('plano');
 const descricao = "ContratacaoPlanoIptv";
 const txId = "ThStreaming"
 const botao = document.getElementById('botaoGeraPix')
+
 
 function getValue(id, valor){
     let size = valor.length < 10 ? '0' + valor.length : valor.length;
@@ -61,11 +63,11 @@ function getCRC16(payload) {
 
 function getMerchantiAccountInformation(){
     let gui = getValue(IDMERCHANTACCOUNTINFORMATIONGUI, 'BR.GOV.BCB.PIX')
-    let key = getValue(this._IDMERCHANTACCOUNTINFORMATIONKEY, chavePix)
-    let description = getValue(this._IDMERCHANTACCOUNTINFORMATIONDESCRIPTION, descricao.value+telefone.value)
+    let key = getValue(IDMERCHANTACCOUNTINFORMATIONKEY, chavePix)
+    let description = getValue(IDMERCHANTACCOUNTINFORMATIONDESCRIPTION, descricao.value+telefone.value)
     let info =  getValue(IDMERCHANTACCOUNTINFORMATION, gui+key+description)
     return info;
-   //return this.getValue(this._IDMERCHANTACCOUNTINFORMATION, gui+key)
+   //return this.getValue(IDMERCHANTACCOUNTINFORMATION, gui+key)
 }
 
 function getPayload(){
@@ -86,12 +88,14 @@ function getPayload(){
 
 function geradorChavePix(e){
      e.preventDefaut
-     //getPayload()
-     console.log(`Nome: ${nome.value} Telefone: ${telefone.value} - Valor: ${valor.value} - Codigo: ${getPayload()}` )
+     //codigoGerado = getPayload();
+     //var qrc = new QRCode(document.querySelector('.modal-dialog'), getPayload());
+     document.getElementById('qrcode').setAttribute("disabled", "true");
 }
 
 botao.addEventListener('click', geradorChavePix)
 
+//module.exports = geradorChavePix;
 
 
 
