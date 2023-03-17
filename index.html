@@ -276,22 +276,22 @@
           <img src="./assets/images/pix.png" >          
           <div class="form">
             <form>
-              <label for="" class="form-label">Nome</label>
-              <input type="text" name="" id="nome" class="form-control" placeholder="Digite seu nome" required>
-              <label for="" class="form-label">Telefone</label>
-              <input type="text" name="" id="telefone" class="form-control" placeholder="Digite telefone do whatsapp" required>
+              <label for="nome" class="form-label">Nome e Sobrenome</label>
+              <input type="text" name="" id="nome" class="form-control" placeholder="Digite seu nome e sobrenome" required>
+              <label for="telefone" class="form-label">Telefone</label>
+              <input type="text" name="telefone" id="telefone" class="form-control" placeholder="Digite telefone do whatsapp" required>
               <div class="mb-3">
                 <label for="" class="form-label">Plano</label>
-                <select class="form-select form-select" name="plano" id="plano">
+                <select class="form-select form-select" name="plano" id="plano" required>
                   <option selected>Escolha seu plano</option>
-                  <option value="mensal">Mensal</option>
-                  <option value="trimestal">Trimestral</option>
-                  <option value="semestral">Semestral</option>
-                  <option value="anual">Anual</option>
-                  <option value="internet">Mensal + internet</option>
+                  <option value=29.90>Mensal</option>
+                  <option value=79.90>Trimestral</option>
+                  <option value=169.90>Semestral</option>
+                  <option value=299.90>Anual</option>
+                  <option value=49.90>Mensal + internet</option>
                 </select>
               </div>
-              <button type="button" class="btn btn-success" onclick="window.alert('Desculpe estamos trabalhando nessa funcionalidade.\nEm breve estará disponível.')" >Adiquirir meu plano</button>
+              <button type="button" id="botaoGeraPix" class="btn btn-success" >Adiquirir meu plano</button>
             </form>
           </div>
         </div>
@@ -320,12 +320,15 @@
     </section>
   </main>
   <footer>
-    <div class="rodape">
+    <div class="rodape container-fluid">
       <p>Todos os Direitos reservados - TH Streaming &copy; 2023</p>
       <p>whatsapp: 85 98216-1439 | 85 98795-9500</p>
       <p>Instagran: @melhordobrasil1287 | @ths.tvlive</p>
     </div>
   </footer >
+  <script src="/js/pix.js"></script>
+  <script src="/js/qrcode.js"></script>
+  <script src="/js/qrcode.min.js"></script>
   <!-- Bootstrap JavaScript Libraries -->
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
     integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">

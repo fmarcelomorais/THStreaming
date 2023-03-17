@@ -1,43 +1,43 @@
 
-const _parametros = null;
-const _IDPAYLOADFORMATINDICATOR = '00';
-const _IDMERCHANTACCOUNTINFORMATION = '26';
-const _IDMERCHANTACCOUNTINFORMATIONGUI = '00';
-const _IDMERCHANTACCOUNTINFORMATIONKEY = '01';
-const _IDMERCHANTACCOUNTINFORMATIONDESCRIPTION = '02';
-const _IDMERCHANTCATEGORYCODE = '52';
-const _IDTRANSACTIONCURRENCY = '53';
-const _IDTRANSACTIONAMOUNT = '54';
-const _IDCOUNTRYCODE = '58';
-const _IDMERCHANTNAME = '59';
-const _IDMERCHANTCITY = '60';
-const _POSTALCODE = '61';
-const _IDADDITIONALDATAFIELDTEMPLATE = '62';
-const _IDADDITIONALDATAFIELDTEMPLATETXID = '05';
-const _IDCRC16 = '63';
-const _codigoGerado = null;
+const IDPAYLOADFORMATINDICATOR = '00';
+const IDMERCHANTACCOUNTINFORMATION = '26';
+const IDMERCHANTACCOUNTINFORMATIONGUI = '00';
+const IDMERCHANTACCOUNTINFORMATIONKEY = '01';
+const IDMERCHANTACCOUNTINFORMATIONDESCRIPTION = '02';
+const IDMERCHANTCATEGORYCODE = '52';
+const IDTRANSACTIONCURRENCY = '53';
+const IDTRANSACTIONAMOUNT = '54';
+const IDCOUNTRYCODE = '58';
+const IDMERCHANTNAME = '59';
+const IDMERCHANTCITY = '60';
+const POSTALCODE = '61';
+const IDADDITIONALDATAFIELDTEMPLATE = '62';
+const IDADDITIONALDATAFIELDTEMPLATETXID = '05';
+const IDCRC16 = '63';
+let codigoGerado = "";
 
-const chavePix = document.getElementById('chave');
+const chavePix = '5869dc96-a3af-4f86-837f-b8d56b86fca3'
 const nome = document.getElementById('nome');
-const valor = document.getElementById('valor');
-const descricao = "";
-const txId = document.getElementById('identificacao');
+const telefone = document.getElementById('telefone')
+const valor = document.getElementById('plano');
+const descricao = "ContratacaoPlanoIptv";
+const txId = "ThStreaming"
+const botao = document.getElementById('botaoGeraPix')
 
-const getValue = function(id, valor){
+function getValue(id, valor){
     let size = valor.length < 10 ? '0' + valor.length : valor.length;
     return id + size + valor;
 }
 
-const _getAddionalDataFielTemplate = function(){
-
-    let txid = getValue(_IDADDITIONALDATAFIELDTEMPLATETXID, this.parametros.txId || '***')
-    return this.getValue(this._IDADDITIONALDATAFIELDTEMPLATE, txid)
+function getAddionalDataFielTemplate(){
+    let txid = getValue(IDADDITIONALDATAFIELDTEMPLATETXID, txId || '***')
+    return getValue(IDADDITIONALDATAFIELDTEMPLATE, txid)
 }
 
-const _getCRC16 = function(payload) {
+function getCRC16(payload) {
 
     //DADOS DEFINIDOS PELO BACEN
-    let codePayload = payload + this._IDCRC16 + '04'
+    let codePayload = payload + IDCRC16 + '04'
     let polinomio = 0x1021;
     let resultado = 0xFFFF;
     let tamPayload = codePayload.length
@@ -54,42 +54,45 @@ const _getCRC16 = function(payload) {
         }
     }
 
-    let toFormattedString = require('@nginstack/engine/lib/string/toFormattedString');
-    let hexaDecimal = toFormattedString(resultado, '%0x');
+    //let toFormattedString = require('@nginstack/engine/lib/string/toFormattedString');
+    let hexaDecimal = resultado.toString(16) //toFormattedString(resultado, '%0x');
     return codePayload + hexaDecimal
 }
 
-const _getMerchantiAccountInformation = function(){
-    let gui = this.getValue(this._IDMERCHANTACCOUNTINFORMATIONGUI, 'BR.GOV.BCB.PIX')
-    let key = this.getValue(this._IDMERCHANTACCOUNTINFORMATIONKEY, this.parametros.chavePix)
-    if(!!this.parametros.descricao){
-        let description = this.getValue(this._IDMERCHANTACCOUNTINFORMATIONDESCRIPTION, this.parametros.descricao)
-        return this.getValue(this._IDMERCHANTACCOUNTINFORMATION, gui+key+description)
-    }
-    return this.getValue(this._IDMERCHANTACCOUNTINFORMATION, gui+key)
+function getMerchantiAccountInformation(){
+    let gui = getValue(IDMERCHANTACCOUNTINFORMATIONGUI, 'BR.GOV.BCB.PIX')
+    let key = getValue(this._IDMERCHANTACCOUNTINFORMATIONKEY, chavePix)
+    let description = getValue(this._IDMERCHANTACCOUNTINFORMATIONDESCRIPTION, descricao.value+telefone.value)
+    let info =  getValue(IDMERCHANTACCOUNTINFORMATION, gui+key+description)
+    return info;
+   //return this.getValue(this._IDMERCHANTACCOUNTINFORMATION, gui+key)
 }
 
-const _getPayload = function(){
-    let payload = this.getValue(this._IDPAYLOADFORMATINDICATOR, '01')
-        + this._getMerchantiAccountInformation()
-        + this.getValue(this._IDMERCHANTCATEGORYCODE, '0000')
-        + this.getValue(this._IDTRANSACTIONCURRENCY, '986')
-    if(!!this.parametros.valor){
-        payload += this.getValue(this._IDTRANSACTIONAMOUNT, this.parametros.valor)
-    }
-    payload += this.getValue(this._IDCOUNTRYCODE, 'BR')
-        + this.getValue(this._IDMERCHANTNAME, this.parametros.nome.substring(0,25))
-        + this.getValue(this._IDMERCHANTCITY, 'SAO PAULO' /*this.parametros.cidade*/ ) //testei com Fortaleza mas da erro no código
-        + this._getAddionalDataFielTemplate();
+function getPayload(){
+    let payload = getValue(IDPAYLOADFORMATINDICATOR, '01')
+        + getMerchantiAccountInformation()
+        + getValue(IDMERCHANTCATEGORYCODE, '0000')
+        + getValue(IDTRANSACTIONCURRENCY, '986')
+    payload += getValue(IDTRANSACTIONAMOUNT, valor.value)
+    payload += getValue(IDCOUNTRYCODE, 'BR')
+        + getValue(IDMERCHANTNAME, nome.value.substring(0,25))
+        + getValue(IDMERCHANTCITY, 'SAO PAULO' /*cidade*/ ) //testei com Fortaleza mas da erro no código
+        + getAddionalDataFielTemplate();
         
-    this.codigoGerado = this._getCRC16(payload).toString()
+    codigoGerado = getCRC16(payload).toString()
+
+    return codigoGerado
 }
 
-const geradorChavePix = function(params){
-     this.parametros = params
-     this._getPayload()
-     return this.codigoGerado
+function geradorChavePix(e){
+     e.preventDefaut
+     //getPayload()
+     console.log(`Nome: ${nome.value} Telefone: ${telefone.value} - Valor: ${valor.value} - Codigo: ${getPayload()}` )
 }
+
+botao.addEventListener('click', geradorChavePix)
+
+
 
 
 
