@@ -100,9 +100,6 @@ function geradorChavePix(e){
     if(valor.value == 29.90){
         plano = "PLANO MENSAL"
     }
-    if(valor.value == 29.90){
-        plano = "PLANO MENSAL"
-    }
     if(valor.value == 79.90){
         plano = "PLANO TRIMESTRAL"
     }
