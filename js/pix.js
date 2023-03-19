@@ -121,8 +121,8 @@ function geradorChavePix(e){
     if(nome.value && telefone.value && valor.value){
         btn.removeAttribute("disabled")   
         titulo.innerHTML = `${nome.value}, Esse é seu código, use a câmera para escanear ou copie e cole o código.` 
-        let texto = `<h3>Você escolheu o <b>${plano}</b>, no valor de <b>R$ ${valor.value}</b>.\nMande o comprovante para um dos whatsapp (85) 98216-1439 ou  (85) 98795-9500.</h3>`
-        texto += `<p>Código Copia e cola:<p> <h4>${getPayload()}</h4>`
+        let texto = `<h4>Você escolheu o <b>${plano}</b>, no valor de <b>R$ ${valor.value}</b>.\nMande o comprovante para um dos whatsapp (85) 98216-1439 ou  (85) 98795-9500.</h4>`
+        texto += `<p>Código Copia e cola:<p> <h5>${getPayload()}</h5>`
         
         codigo.innerHTML = texto
         
