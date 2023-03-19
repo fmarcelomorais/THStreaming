@@ -121,7 +121,11 @@ function geradorChavePix(e){
     if(nome.value && telefone.value && valor.value){
         btn.removeAttribute("disabled")   
         titulo.innerHTML = `${nome.value}, Esse é seu código, use a câmera para escanear ou copie e cole o código.` 
-        codigo.innerHTML = `Você escolheu o <b>${plano}</b>, no valor de <b>R$ ${valor.value}</b>.\nMande o comprovante para um dos whatsapp (85) 98216-1439 ou  (85) 98795-9500 `
+        let texto = `<p>Você escolheu o <b>${plano}</b>, no valor de <b>R$ ${valor.value}</b>.\nMande o comprovante para um dos whatsapp (85) 98216-1439 ou  (85) 98795-9500.</p>`
+        texto += `Código Copia e cola: <b>${getPayload()}</b>`
+        
+        codigo.innerHTML = texto
+        
         console.log(getPayload())
         new QRCode(qrcodeCopy, {
              text:getPayload(),
