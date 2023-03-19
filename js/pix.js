@@ -126,12 +126,7 @@ function geradorChavePix(e){
         
         codigo.innerHTML = texto
         
-        console.log(getPayload())
-        new QRCode(qrcodeCopy, {
-             text:getPayload(),
-             width: 1200,
-             height: 1200,
-            });
+        new QRCode(qrcodeCopy, getPayload());
             
         }else{
             alert('Preencha todos os campos para criar o seu QRCODE.')
