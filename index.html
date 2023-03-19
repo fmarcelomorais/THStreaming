@@ -293,16 +293,32 @@
               </div>
               <button type="button" id="botaoGeraPix" class="btn btn-success" >Adiquirir meu plano</button>
             </form>
+            <div class="myModal">
+               <!-- Button trigger modal -->
+              <button type="button" class="btn btn-primary" id="btn" data-bs-toggle="modal" data-bs-target="#exampleModal" disabled>
+                Ver Qr code - Pix
+              </button>
+              <!-- Modal -->
+              <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Seu QRCode</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      <p class="codigo"></p>
+                      <span class="qrcodeCopy"></span>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+             </div> 
           </div>
-          <p id="qrcode">
-            <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-              Link with href
-            </a>
-          <div class="collapse" id="collapseExample">
-            <div class="card card-body">
-              Some placeholder content for the collapse component. This panel is hidden by default but revealed when the user activates the relevant trigger.
-            </div>
-          </div>
+
         </div>
         <div class="pix">
           <h3>Transferência</h3>
@@ -338,6 +354,7 @@
       <p>Instagran: @melhordobrasil1287 | @ths.tvlive</p>
     </div>
   </footer >
+
 
   <script type="module" src="./js/pix.js"></script>
   <script type="module" src="./js/qrcode.js"></script>

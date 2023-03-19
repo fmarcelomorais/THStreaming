@@ -176,6 +176,11 @@ footer{
 
 }
 
+.myModal{
+    margin-top: 20px;
+    align-self: center;
+}
+
 @media screen and (max-width: 768px) {
     .box{
         display: flex;
