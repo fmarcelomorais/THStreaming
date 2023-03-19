@@ -236,6 +236,14 @@ footer{
     }
     .pix ul li{
         text-align: center;
-        font-size: 1.5rem;
+        font-size: 0.8rem;
     } 
+    .codigo h4{
+        text-align: center;
+        font-size: 1.1rem;
+    }
+    .codigo h5{
+        text-align: left;
+        font-size: 0.8rem;
+    }
 }
