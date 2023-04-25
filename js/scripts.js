@@ -121,15 +121,19 @@ function geradorChavePix(e){
         
         new QRCode(qrcodeCopy, getPayload());
         
-        sendEmail(email.value, texto) 
+        enviarEmail(email.value, texto) 
 
-        window.location.href = "./revendedor.html"
         
     }else{
         swal('Preencha todos os campos para criar o seu QRCODE.')
     }
     
      
+}
+
+function enviarEmail(email, texto){
+    const x = fetch('https://formsubmit.co/th.streamingtv@gmail.com')
+    console.log(email, texto)
 }
 
 function sendEmail(email, texto) {
@@ -149,6 +153,10 @@ function sendEmail(email, texto) {
             icon: "warning",
         });
       });
+      setInterval(() => {        
+        window.location.href = "./revendedor.html"
+    }, 30000);
+    
   }
 
 botao.addEventListener('click', geradorChavePix)

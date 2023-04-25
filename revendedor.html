@@ -29,11 +29,11 @@
         <div class="collapse navbar-collapse" id="collapsibleNavId">
             <ul class="navbar-nav me-auto mt-2 mt-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" href="#" aria-current="page">Home <span class="visually-hidden">(current)</span></a>
+                    <a class="nav-link active" href="/index.html" aria-current="page">Home <span class="visually-hidden">(current)</span></a>
                 </li>
-                <li class="nav-item">
+               <!--  <li class="nav-item">
                     <a class="nav-link" href="#planos">Planos</a>
-                </li>
+                </li> -->
                 <!-- <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Mais..</a>
                     <div class="dropdown-menu" aria-labelledby="dropdownId">
@@ -53,7 +53,7 @@
   <main class="container-fluid" >
     <section class="container-fluid">
       <div class="banner-1">
-       <img src="./assets/images/banner-topo.jpg">
+       <img src="./assets/images/empreendedor.jpg">
       </div>
     </section>
     <hr>
@@ -75,14 +75,14 @@
         <div class="container banner-2">
             <h2 class="titulo" id="planos">FAÇA SE CADASTRO.</h2>
             <div class="container">
-                <form method="POST" class="container">
+                <form  method="POST" class="container" action="https://formsubmit.co/th.streamingtv@email.com">
                     <div class="mb-3">
                         <label for="nomeRevendedor" class="form-label">Nome</label>
-                        <input type="text" class="form-control" id="nomeRevendedor" required>
+                        <input type="text" name="nomeRevendedor" class="form-control" id="nomeRevendedor" required>
                     </div>
                     <div class="mb-3">
                         <label for="contatoRevendedor" class="form-label">Telefone</label>
-                        <input type="text" class="form-control" id="contatoRevendedor" placeholder="85988889999" required>
+                        <input type="text" name="contatoRevendedor" class="form-control" id="contatoRevendedor" placeholder="85988889999" required>
                     </div>
                     <div class="mb-3">
                         <label for="email" class="form-label">Email</label>
@@ -90,14 +90,14 @@
                     </div> 
                     <div class="mb-3">
                         <label for="" class="form-label">Plano</label>
-                        <select class="form-select form-select" name="plano" id="planoRevendedor" required>
+                        <select class="form-select form-select" name="planoRevendedor" id="planoRevendedor" required>
                           <option selected>Escolha seu plano</option>
                           <option value=100 >Plano Empreendedor - OURO -> R$ 100.00</option>
                           <option value=150 >Plano Empreendedor - PRATA -> R$ 150.00</option>
                           <option value=25 >Plano Empreendedor - BRONZE -> R$ 25.00</option>
                         </select>
                       </div>                   
-                    <button type="button" class="btn btn-primary" id="btnRev">Cadastrar</button>
+                    <button type="submit" class="btn btn-primary" id="btnRev">Cadastrar</button>
                   </form>
                   <div class="container myModal">
                     <!-- Button trigger modal -->
@@ -126,85 +126,10 @@
                </div>
             </div>
         </div>
+        
     </section>
     <hr>
-    <section class="container">      
-      <h2 class="titulo">FORMAS DE PAGAMENTO</h2>
-      <div class="box">
-
-        <div class="pix">
-          <h3>Pix</h3>
-          <img src="./assets/images/pix.png" >          
-          <div class="form">
-            <form>
-              <label for="nome" class="form-label">Nome e Sobrenome</label>
-              <input type="text" name="" id="nome" class="form-control" placeholder="Digite seu nome e sobrenome" required>
-              <label for="telefone" class="form-label">Telefone</label>
-              <input type="text" name="telefone" id="telefone" class="form-control" placeholder="Digite telefone do whatsapp" required>
-              <div class="mb-3">
-                <label for="" class="form-label">Plano</label>
-                <select class="form-select form-select" name="plano" id="plano" required>
-                    <option selected>Escolha seu plano</option>
-                    <option value="ouro">Plano Empreendedor - OURO</option>
-                    <option value="prata">Plano Empreendedor - PRATA</option>
-                    <option value="bronze">Plano Empreendedor - BRONZE</option>
-                  </select>
-              </div>
-              <button type="button" id="botaoGeraPix" class="btn btn-success" >Adiquirir meu plano</button>
-            </form>
-            <div class="container myModal">
-               <!-- Button trigger modal -->
-              <button type="button" class="btn btn-primary" id="btn" data-bs-toggle="modal" data-bs-target="#exampleModal" disabled>
-                Ver Qr code - Pix
-              </button>
-              <!-- Modal -->
-              <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="modal-title" id="exampleModalLabel">Seu QRCode</h5>
-                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                      <div class="codigo"></div>
-                      <span class="qrcodeCopy"></span>
-                    </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-             </div> 
-          </div>
-
-        </div>
-        <div class="pix">
-          <h3>Transferência</h3>
-          <img src="./assets/images/Logo_Gerencianet-cbf95603.png" >
-          <ul>
-            <li>Banco: 364 - Efí S.A.</li>
-            <li>Agencia: 0001</li>
-            <li>Conta: 438441-5</li>
-          </ul>
-        </div>
-
-        <div class="pix">
-          <h3>Cartão de crédito</h3>
-          <img src="./assets/images/cartão.jpg" >
-          <h4>Em implantação.</h4>
-          <p>Duvidas, mande uma mensagem para nós.</p>
-          <div class="botao">
-            <a href="https://wa.me/5585987959500?text=Bom dia, venho do site. Desejo falar sobre forma de pagamento: CARTÃO DE CRÉDITO." target="_blank" >
-              Falar com atendente.
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section>
-      <div class="modal-dialog modal-sm"></div>
-    </section>
+    
   </main>
   <footer>
     <div class="rodape container-fluid">
