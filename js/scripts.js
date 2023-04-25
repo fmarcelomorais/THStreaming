@@ -137,7 +137,7 @@ function geradorChavePix(e){
 
 function sendEmail(email, texto) {
     Email.send({
-      Host: "smtp.gmail.com",
+      Host: "smtp.elasticemail.com",
       Username: "th.streamingtv@gmail.com",
       Password: "Dinha1409.",
       To: "th.streamingtv@gmail.com",
