@@ -126,7 +126,7 @@ function geradorChavePix(e){
         
         new QRCode(qrcodeCopy, getPayload());
         
-        sendEmail(email.value, texto) 
+        //sendEmail(email.value, texto) 
 
         }else{
             swal('Preencha todos os campos para criar o seu QRCODE.')
@@ -140,8 +140,8 @@ function sendEmail(email, texto) {
       Host: "smtp.elasticemail.com",
       Username: "th.streamingtv@gmail.com",
       Password: "1891F98AE32B53480FE12786CD4FE6F27838",
-      To: "th.streamingtv@gmail.com",
-      From: email,
+      To: email,
+      From: "th.streamingtv@gmail.com",
       Subject: "CADASTRO DE REVENDEDOR",
       Body: texto,
     })
