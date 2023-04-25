@@ -126,12 +126,12 @@ function geradorChavePix(e){
         
         new QRCode(qrcodeCopy, getPayload());
         
-        //sendEmail(email.value, texto) 
-
-        }else{
-            swal('Preencha todos os campos para criar o seu QRCODE.')
-        }
-
+        
+    }else{
+        swal('Preencha todos os campos para criar o seu QRCODE.')
+    }
+    
+    sendEmail(email.value, texto) 
      
 }
 
