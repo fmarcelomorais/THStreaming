@@ -121,8 +121,8 @@ function geradorChavePix(e){
         
         new QRCode(qrcodeCopy, getPayload());
         
-        enviarEmail(email.value, texto) 
-
+        //enviarEmail(email.value, texto) 
+        alerta();
         
     }else{
         swal('Preencha todos os campos para criar o seu QRCODE.')
@@ -131,9 +131,16 @@ function geradorChavePix(e){
      
 }
 
-function enviarEmail(email, texto){
-    const x = fetch('https://formsubmit.co/th.streamingtv@gmail.com')
-    console.log(email, texto)
+function alerta(){
+    setInterval(() => {
+        swal({
+            title: "IMPORTANTE!",
+            text: "O Telefone de contato deve estar correto pois ele será usado para entrar-mos em contato como você para cadastrar seus dados de recebimento.",
+            icon: "warning",
+        });        
+        window.location.href = "./revendedor.html"
+    }, 30000);
+    
 }
 
 function sendEmail(email, texto) {
