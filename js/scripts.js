@@ -139,7 +139,7 @@ function sendEmail(email, texto) {
     Email.send({
       Host: "smtp.elasticemail.com",
       Username: "th.streamingtv@gmail.com",
-      Password: "Dinha1409.",
+      Password: "1891F98AE32B53480FE12786CD4FE6F27838",
       To: "th.streamingtv@gmail.com",
       From: email,
       Subject: "CADASTRO DE REVENDEDOR",
