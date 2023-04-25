@@ -164,6 +164,15 @@ footer{
     margin: 5px;
     padding: 5px;
 }
+.texto{
+    color: blueviolet;
+    font-size: 1.2rem;
+    text-align: left;
+    padding: 15px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px #242424;
+}
 .botao a{
     font-size: 1.1rem; 
     color: #fff;   

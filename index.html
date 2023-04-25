@@ -12,6 +12,7 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/style.css">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 <body>
   <header class="topo">
@@ -32,13 +33,13 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#planos">Planos</a>
                 </li>
-                <li class="nav-item dropdown">
+                <!-- <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Mais..</a>
                     <div class="dropdown-menu" aria-labelledby="dropdownId">
                         <a class="dropdown-item" href="https://drive.google.com/drive/folders/1LzE5ZYTWcbwi-cKTMYDth4khPQufoTzo?usp=share_link" target="_blank">Aplicativos IPTV</a>
                         <a class="dropdown-item" href="https://drive.google.com/drive/folders/1PyRaVNG0OQj5zo3vmWiZUpyLQkMMg5Iv?usp=share_link" target="_blank">Aplicativos Internet</a>
                     </div>
-                </li>
+                </li> -->
             </ul>
             <!-- <form class="d-flex my-2 my-lg-0">
                 <input class="form-control me-sm-2" type="text" placeholder="Search">
@@ -58,34 +59,60 @@
         <div class="container banner-2">
             <h2 class="titulo">Conheça nosso serviço de TV via Internet</h2>
             <div class="carrossel">
-                <div id="carouselExampleFade" class="carousel slide carousel-fade">
-                  <div class="carousel-inner">
-                    <div class="carousel-item active">
-                      <img src="./assets/images/banner-1.jpg" class="d-block w-100" alt="Filmes">
+              <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                  <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                  <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                  <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                  <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                  <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="4" aria-label="Slide 5"></button>
+                </div>
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <img src="/assets/images/banner-1.jpg" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                      <h5>First slide label</h5>
+                      <p>Some representative placeholder content for the first slide.</p>
                     </div>
-                    <div class="carousel-inner">
-                      <div class="carousel-item active">
-                        <img src="./assets/images/banner-2.jpg" class="d-block w-100" alt="Filmes">
-                      </div>
-                      <div class="carousel-item">
-                        <img src="./assets/images/banner-3.jpg" class="d-block w-100" alt="Filmes">
-                      </div>
-                      <div class="carousel-item">
-                        <img src="./assets/images/banner-4.jpg" class="d-block w-100" alt="Filmes">
-                      </div>
-                      <div class="carousel-item">
-                        <img src="./assets/images/banner-5.jpg" class="d-block w-100" alt="Filmes">
-                      </div>
-                    </div>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
-                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                      <span class="visually-hidden">Previous</span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
-                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                      <span class="visually-hidden">Next</span>
-                    </button>
                   </div>
+                  <div class="carousel-item">
+                    <img src="/assets/images/banner-2.jpg" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                      <h5>Second slide label</h5>
+                      <p>Some representative placeholder content for the second slide.</p>
+                    </div>
+                  </div>
+                  <div class="carousel-item">
+                    <img src="/assets/images/banner-3.jpg" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                      <h5>Third slide label</h5>
+                      <p>Some representative placeholder content for the third slide.</p>
+                    </div>
+                  </div>
+                  <div class="carousel-item">
+                    <img src="/assets/images/banner-4.jpg" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                      <h5>Third slide label</h5>
+                      <p>Some representative placeholder content for the third slide.</p>
+                    </div>
+                  </div>
+                  <div class="carousel-item">
+                    <img src="/assets/images/banner-5.jpg" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                      <h5>Third slide label</h5>
+                      <p>Some representative placeholder content for the third slide.</p>
+                    </div>
+                  </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
+              </div>
             </div>
         </div>
     </section>
@@ -176,6 +203,34 @@
                     </div>
                   </div>
                 </div>
+              </div>       
+
+              <div class="plano">
+                <div class="card">
+                  <img class="card-img-top" src="./assets/images/anual.svg"  alt="Title">
+                  <div class="card-body">
+                    <hr>
+                    <h4 class="card-title">PLANO MENSAL + INTERNET</h4>
+                    <!-- <p class="card-text">O que o pl</p> -->
+                      <h3>R$ 49.90</h3>
+                      <span>+ 5000 Conteúdos</span>
+                      <ul>                     
+                        <li>Suporte 24horas</li>
+                        <li>Filmes</li>
+                        <li>Séries</li>
+                        <li>Canais On-line</li>
+                        <li>Jogos</li>
+                        <li>Infantil</li>
+                        <li>Adulto</li>
+                      </ul>
+                    <hr>             
+                    <div class="botao">
+                      <a href="https://wa.me/5585987959500?text=Bom dia, venho do site. Tenho interesse no plano com internet e quero fazer um teste." target="_blank">
+                        Quero fazer um teste.
+                      </a>
+                    </div>
+                  </div>
+                </div>
               </div>
 
               <div class="plano">
@@ -206,34 +261,6 @@
                 </div>
               </div>
 
-              <div class="plano">
-                <div class="card">
-                  <img class="card-img-top" src="./assets/images/anual.svg"  alt="Title">
-                  <div class="card-body">
-                    <hr>
-                    <h4 class="card-title">PLANO MENSAL + INTERNET</h4>
-                    <!-- <p class="card-text">O que o pl</p> -->
-                      <h3>R$ 49.90</h3>
-                      <span>+ 5000 Conteúdos</span>
-                      <ul>                     
-                        <li>Suporte 24horas</li>
-                        <li>Filmes</li>
-                        <li>Séries</li>
-                        <li>Canais On-line</li>
-                        <li>Jogos</li>
-                        <li>Infantil</li>
-                        <li>Adulto</li>
-                      </ul>
-                    <hr>
-             
-                    <div class="botao">
-                      <a href="https://wa.me/5585987959500?text=Bom dia, venho do site. Tenho interesse no plano com internet e quero fazer um teste." target="_blank">
-                        Quero fazer um teste.
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
 
               <div class="plano">
                 <div class="card">
@@ -267,6 +294,97 @@
         </div>
     </section>
     <hr>
+    <section class="container secao-3">
+      <div class="container banner-2">
+          <h2 class="titulo" id="planos">Seja um Revendedor de sucesso.</h2>
+          <h3 id="planos">Planos para revendedores.</h3>
+          <div class="planos">
+
+            <div class="plano">
+              <div class="card">
+                <img class="card-img-top" src="./assets/images/ponto.svg" alt="Title">
+                <div class="card-body">
+                  <hr>
+                  <h4 class="card-title">PLANO EMPREENDEDOR</h4>
+                  <h4 class="card-title">OURO</h4>
+                    <h3>R$ 100.00</h3>
+                    <span>PAINEL GRÁTIS</span>
+                  <ul>                     
+                    <li>10 - CRÉDITOS</li>
+                    <li>Suporte via WhatsApp</li>
+                    <li>Ativação do painel imediata</li>
+                    <li>Banner de anúncios</li>
+                  </ul>
+                  <hr>
+                  <div class="botao">
+                    <a href="/revendedor.html" >
+                      Quero ser Empreendedor!
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="plano">
+              <div class="card">
+                <img class="card-img-top" src="./assets/images/ponto.svg" alt="Title">
+                <div class="card-body">
+                  <hr>
+                  <h4 class="card-title">PLANO EMPREENDEDOR</h4>
+                  <h4>PRATA</h4>
+                  <!-- <p class="card-text">O que o pl</p> -->
+                    <h3>R$ 150.00</h3>
+                    <span>PAINEL GRÁTIS</span>
+                  <ul>                     
+                    <li>10 - CRÉDITOS</li>
+                    <li>Suporte via WhatsApp</li>
+                    <li>Ativação do painel imediata</li>
+                    <li>Banner de anúncios</li>
+                    <li style="color:red;">50% de entrada </li>
+                    <li style="color:red;"> 20 dias para pagar o painel</li>
+                  </ul>
+                  <hr>
+                  <div class="botao">
+                    <a href="/revendedor.html" >
+                      Quero ser Empreendedor!
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="plano">
+              <div class="card">
+                <img class="card-img-top" src="./assets/images/ponto.svg" alt="Title">
+                <div class="card-body">
+                  <hr>
+                  <h4 class="card-title">PLANO EMPREENDEDOR</h4>
+                  <h4 class="card-title">BRONZE</h4>
+                  <!-- <p class="card-text">O que o pl</p> -->
+                    <h3>R$ 25.00</h3>
+                    <span>PAINEL GRÁTIS</span>
+                  <ul>                     
+                    <li>1 - CRÉDITO</li>
+                    <li>Suporte via WhatsApp</li>
+                    <li>Ativação do painel imediata</li>
+                    <li>Banner de anúncios</li>
+                    <li>Ativação do painel imediatamente</li>
+                    <li style="color:red;">Nessa modalidade a venda é divida</li>
+                    <li style="color:red;">50% para o revendedor.</li>
+                    <li style="color:red;">50% para TH STREAMING.</li>
+                  </ul>
+                  <hr>
+                  <div class="botao">
+                    <a href="/revendedor.html" >
+                      Quero ser Empreendedor!
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>          
+      </div>
+    </div>
+  </section>
     <section class="container">      
       <h2 class="titulo">FORMAS DE PAGAMENTO</h2>
       <div class="box">
@@ -344,7 +462,7 @@
       </div>
     </section>
     <section>
-      <div class="modal-dialog modal-sm">...</div>
+      <div class="modal-dialog modal-sm"></div>
     </section>
   </main>
   <footer>
@@ -356,6 +474,7 @@
   </footer >
 
 
+  <script type="module" src="./js/scripts.js"></script>
   <script type="module" src="./js/pix.js"></script>
   <script type="module" src="./js/qrcode.js"></script>
   
