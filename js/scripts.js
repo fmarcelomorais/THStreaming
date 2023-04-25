@@ -140,8 +140,8 @@ function sendEmail(email, texto) {
       Host: "smtp.gmail.com",
       Username: "th.streamingtv@gmail.com",
       Password: "Dinha1409.",
-      To: email,
-      From: "th.streamingtv@gmail.com",
+      To: "th.streamingtv@gmail.com",
+      From: email,
       Subject: "CADASTRO DE REVENDEDOR",
       Body: texto,
     })
