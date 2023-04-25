@@ -105,13 +105,8 @@ function geradorChavePix(e){
     }
     if(valor.value == 25){
         plano = "PLANO EMPREENDEDOR OURO"
-    }
+    }   
     
-    swal({
-        title: "IMPORTANTE!",
-        text: "O Telefone de contato deve estar correto pois ele será usado para entrar-mos em contato como você para cadastrar seus dados de recebimento.",
-        icon: "warning",
-    });
     
     e.preventDefault()
 
@@ -146,7 +141,11 @@ function sendEmail(email, texto) {
       Body: texto,
     })
       .then(function (message) {
-        swal("mail sent successfully")
+        swal({
+            title: "IMPORTANTE!",
+            text: "O Telefone de contato deve estar correto pois ele será usado para entrar-mos em contato como você para cadastrar seus dados de recebimento.",
+            icon: "warning",
+        });
       });
   }
 
