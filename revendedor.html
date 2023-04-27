@@ -15,7 +15,7 @@
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="https://smtpjs.com/v3/smtp.js"></script>
 </head>
-<body>
+<body >
   <header class="topo">
    <nav class="navbar navbar-expand-sm navbar-ligth">
       <div class="container menu p-3">
@@ -71,69 +71,42 @@
         </div>
     </section>
     <hr>
-    <section class="container secao-3">
-        <div class="container banner-2">
-            <h2 class="titulo" id="planos">FAÇA SE CADASTRO.</h2>
-            <div class="container">
-                <form action="https://formsubmit.co/th.streamingtv@gmail.com" method="POST" class="container" >
-                  <input type="hidden" name="_subject" value="REVENDEDOR CADASTRADO - TH STREAMING" >
-                  <!-- <input type="hidden" name="_cc" value="another@email.com"> -->
-                  <input type="text" name="_honey" style="display:none">
-                  <input type="hidden" name="_template" value="table">
-                    <div class="mb-3">
-                        <label for="nomeRevendedor" class="form-label">Nome</label>
-                        <input type="text" name="nomeRevendedor" class="form-control" id="nomeRevendedor" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="contatoRevendedor" class="form-label">Telefone</label>
-                        <input type="text" name="contatoRevendedor" class="form-control" id="contatoRevendedor" placeholder="85988889999" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="email" class="form-label">Email</label>
-                        <input type="email" class="form-control" name="emailRevendedor" id="emailRevendedor"  placeholder="abc@mail.com" required>
-                    </div> 
-                    <div class="mb-3">
-                        <label for="" class="form-label">Plano</label>
-                        <select class="form-select form-select" name="planoRevendedor" id="planoRevendedor" required>
-                          <option selected>Escolha seu plano</option>
-                          <option value=100 >Plano Empreendedor - OURO -> R$ 100.00</option>
-                          <option value=150 >Plano Empreendedor - PRATA -> R$ 150.00</option>
-                          <option value=25 >Plano Empreendedor - BRONZE -> R$ 25.00</option>
-                        </select>
-                      </div>                   
-                    <button type="submit" class="btn btn-primary" id="btnRev">Cadastrar</button>
-                  </form>
-                  <div class="container myModal">
-                    <!-- Button trigger modal -->
-                   <button type="button" class="btn btn-primary" id="btnModal" data-bs-toggle="modal" data-bs-target="#exampleModal" disabled>
-                     Ver Qr code - Pix
-                   </button>
-                   <!-- Modal -->
-                   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                     <div class="modal-dialog">
-                       <div class="modal-content">
-                         <div class="modal-header">
-                           <h5 class="modal-title" id="exampleModalLabel">Seu QRCode</h5>
-                           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                         </div>
-                         <div class="modal-body">
-                           <div class="codigo"></div>
-                           <span class="qrcodeCopy"></span>
-                         </div>
-                         <div class="modal-footer">
-                           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                         </div>
-                       </div>
-                     </div>
-                   </div>
-                  </div> 
-               </div>
-            </div>
-        </div>
-        
-    </section>
+    <section class="container secao-3" >
+      <div class="container banner-2">
+        <h2 class="titulo" id="planos">FAÇA SEU CADASTRO.</h2>
+        <div class="container" id="formulario">
+          <form  >
+            <input type="hidden" name="_subject" value="REVENDEDOR CADASTRADO - TH STREAMING" >
+            <!-- <input type="hidden" name="_cc" value="another@email.com"> -->
+            <input type="text" name="_honey" style="display:none">
+            <input type="hidden" name="_template" value="table">
+              <div class="mb-3">
+                  <label for="nomeRevendedor" class="form-label">Nome</label>
+                  <input type="text" name="name" class="form-control" id="nomeRevendedor" required>
+              </div>
+              <div class="mb-3">
+                  <label for="contatoRevendedor" class="form-label">Telefone</label>
+                  <input type="text" name="contatoRevendedor" class="form-control" id="contatoRevendedor" placeholder="85988889999" required>
+              </div>
+              <div class="mb-3">
+                  <label for="email" class="form-label">Email</label>
+                  <input type="email" class="form-control" name="email" id="emailRevendedor"  placeholder="abc@mail.com" required>
+              </div> 
+              <div class="mb-3">
+                  <label for="" class="form-label">Plano</label>
+                  <select class="form-select form-select" name="message" id="planoRevendedor" required>
+                    <option selected>Escolha seu plano</option>
+                    <option value=100 >Plano Empreendedor - OURO -> R$ 100.00</option>
+                    <option value=150 >Plano Empreendedor - PRATA -> R$ 150.00</option>
+                    <option value=25 >Plano Empreendedor - BRONZE -> R$ 25.00</option>
+                  </select>
+                </div>                   
+              <button type="button" class="btn btn-primary" id="btnRev">Cadastrar</button>
+            </form>
+         </div>
+  </section>
     <hr>
-    
+    <div id="code"></div>
   </main>
   <footer>
     <div class="rodape container-fluid">
@@ -143,10 +116,11 @@
     </div>
   </footer >
 
-
-  <script type="module" src="./js/pix.js"></script>
-  <script type="module" src="./js/qrcode.js"></script>
-  <script type="module" src="./js/scripts.js"></script>
+  
+  <script type="module" src="./js/pix.js"></script> 
+  <!-- <script type="module" src="./js/qrcode.js"></script> -->
+  <!-- <script type="module" src="/js/scripts.js"></script> -->
+  <script type="module" src="./js/formulario.js"></script>  
    
   <!-- <script type="module" src="./js/qrcode.min.js"></script> -->
  

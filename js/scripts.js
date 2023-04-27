@@ -143,6 +143,8 @@ function alerta(){
     
 }
 
+
+
 function sendEmail(email, texto) {
     Email.send({
       Host: "smtp.gmail.com",
@@ -167,6 +169,7 @@ function sendEmail(email, texto) {
   }
 
 botao.addEventListener('click', geradorChavePix)
+
 
 
 
