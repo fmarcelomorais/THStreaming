@@ -45,7 +45,8 @@ function enviarEmail(e){
     let texto = 'EXCELENTE DECISÃO!\n'
     texto += 'Falta pouco para você se tornar um de nossos revendedores de sucesso.\n'
     texto += `Recebedor: FRANCISCO MARCELO SERRA MORAIS - BANCO: EFI\n`
-    texto += `Chave Pix: <b>${chavePix}\n\n`
+    texto += `Cópia e cola: ${chavePix}\n\n`
+    texto += `Chave Pix: th.streamingtv@gmail.com -> valor R$${planoRevendedor.value},00\n\n`
     texto += `Enviar comprovante para um dos WhatsApp: 85 98216-1439 | 85 98795-9500 `
     texto += `ou Enviar comprovante para th.streamingtv@gmail.com.\n\n`
     texto += `O link do painel com login e senha será enviado após confirmação do pagamento.\n`
