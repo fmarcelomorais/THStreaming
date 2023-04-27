@@ -91,7 +91,7 @@ function enviarEmail(e){
           _captcha: true,
           _template: 'table',
           _cc:`${email.value}`,
-          _subject: `CADASTRO DE REVENDEDOR ${nome.value.toUpperCase()} - ${plano}`,
+          _subject: `${nome.value.toUpperCase()} - NOVO REVENDEDOR - ${plano}`,
           name: `Novo Revendedor: ${nome.value}`,
           message: `${texto}`
         })
