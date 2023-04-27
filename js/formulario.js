@@ -59,7 +59,7 @@ function enviarEmail(e){
             'Accept': 'application/json'
         },
         body: JSON.stringify({
-          _captcha: false,
+          _captcha: true,
           _template: 'table',
           _cc:`${email.value}`,
           _subject: `CADASTRO DE REVENDEDOR ${nome.value.toUpperCase()} - ${plano}`,
