@@ -50,8 +50,8 @@ function mask(param){
 
 async function testeIPTV(e){
     e.preventDefault();
-    Swal.fire("Olá Cliente!", "TESTE CRIADO", "info");
-    /*const URL = "https://deyler.xyz/api/chatbot/RvWGv6lDe3/BV4D3rLaqZ";
+   // Swal.fire("Olá Cliente!", "TESTE CRIADO", "info");
+    const URL = "https://deyler.xyz/api/chatbot/RvWGv6lDe3/BV4D3rLaqZ";
     const criaTeste = await fetch(URL, {
         method: 'POST',
         headers: {
@@ -60,7 +60,7 @@ async function testeIPTV(e){
     })
     const response = await criaTeste.json();
     Swal.fire(response.reply);
-    */
+    
 }
 
 function payment(){
