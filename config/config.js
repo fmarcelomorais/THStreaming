@@ -2,7 +2,7 @@ const data = {
     nameRev: 'TH-Streaming Tv.',
     icon: 'logo',
     title: "TH-Streaming TV",
-    whatsapp: "85987959500",
+    whatsapp: "85981261439",
     plano1: "PLANO MENSAL",
     valPlano1: '30', 
     plano2: "PLANO TRIMESTRAL",
