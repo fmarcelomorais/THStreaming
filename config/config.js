@@ -3,26 +3,31 @@ const data = {
     icon: 'logo',
     title: "TH-Streaming TV",
     whatsapp: "85982161439",
+    revWhatsapp: "85987959500",
     plano1: "PLANO MENSAL",
     valPlano1: '30', 
     plano2: "PLANO TRIMESTRAL",
     valPlano2: '80', 
     plano3: "PLANO SEMESTRAL",
-    valPlano3: '170',
+    valPlano3: '150',
     revenda: '120',
     ativo: '3,50',
     linkHome: "TH STREAMING TV",
     facebook: "https://www.facebook.com/profile.php?id=100091913952545",
-    year: "2023"
+    year: new Date().getFullYear(),
+    linkPanel: "https://deyler.xyz/"
 
 }
 
 $(document).ready(function() {
     $('head').append(`<link rel="shortcut icon" href="assets/images/${data.icon}.png" type="image/x-icon">`)
     $('title').html(data.title);
-    $('.panel').on('click', sejaRevendedor);
+    $('.payment').on('click', payment);
+    $('.panel').attr('href', data.linkPanel).attr('target', '_blank');
     $('.wsp').attr("href", `https://api.whatsapp.com/send?phone=55${data.whatsapp}&text=Quero saber mais. venho do site.`);
+    $('.wspRev').attr("href", `https://api.whatsapp.com/send?phone=55${data.revWhatsapp}&text=Venho do site. Quero ser Revendedor.`);
     $('.whatsapp').html( mask(data.whatsapp) );      
+    $('.revWhatsapp').html( mask(data.revWhatsapp) );      
     for (let i = 1; i < 4; i++){
         $(`.${`plano${i}`}`).html(`${data[`plano${i}`]}`);
         $(`.${`valPlano${i}`}`).html(`${data[`valPlano${i}`]}`);
@@ -34,10 +39,7 @@ $(document).ready(function() {
     $('.facebook').attr('href', data.facebook);
     $('.year').html(data.year);
     $('.nameRev').html(data.nameRev);
-
 })
-
-
 
 function mask(param){    
     const ddd = param.slice(0,2)
@@ -48,8 +50,8 @@ function mask(param){
 
 async function testeIPTV(e){
     e.preventDefault();
-
-    const URL = "https://deyler.xyz/api/chatbot/RvWGv6lDe3/BV4D3rLaqZ";
+    Swal.fire("Olá Cliente!", "TESTE CRIADO", "info");
+    /*const URL = "https://deyler.xyz/api/chatbot/RvWGv6lDe3/BV4D3rLaqZ";
     const criaTeste = await fetch(URL, {
         method: 'POST',
         headers: {
@@ -57,12 +59,28 @@ async function testeIPTV(e){
           }
     })
     const response = await criaTeste.json();
-    swal(response.reply);
+    Swal.fire(response.reply);
+    */
+}
+
+function payment(){
+    const host = window.location.host;
+    const arrHost = []
+    arrHost.push(host);
+    if(arrHost.indexOf(host) != -1){
+        Swal.fire("Olá Cliente!", "Área em desenvolvimento!", "info");
+    }else{
+        Swal.fire("Olá Cliente!", "Ja fez um teste", "warning");
+    }
+    console.log(arrHost);
+    
+
 }
 
 async function sejaRevendedor(e){
     e.preventDefault();
-    swal("Olá Cliente!", "Área em desenvolvimento!", "info");
+    $('.panel').attr('href', data.linkPanel);
+   // Swal.fire("Olá Cliente!", "Área em desenvolvimento!", "info");
    /* const whatsapp = await swal({
         text: 'Mande seu whatsapp que enviaremos mais informações.',
         content: "input",
