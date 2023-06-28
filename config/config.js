@@ -1,7 +1,7 @@
 const data = {
-    nameRev: 'TH-Streaming Tv.',
+    nameRev: 'THPlayer Tv.',
     icon: 'logo',
-    title: "TH-Streaming TV",
+    title: "THPlayer TV",
     whatsapp: "85982161439",
     revWhatsapp: "85987959500",
     plano1: "PLANO MENSAL",
@@ -12,7 +12,7 @@ const data = {
     valPlano3: '150',
     revenda: '120',
     ativo: '3,50',
-    linkHome: "TH STREAMING TV",
+    linkHome: "THPlayer TV",
     facebook: "https://www.facebook.com/profile.php?id=100091913952545",
     year: new Date().getFullYear(),
     linkPanel: "https://deyler.xyz/"
@@ -31,7 +31,7 @@ $(document).ready(function() {
     for (let i = 1; i < 4; i++){
         $(`.${`plano${i}`}`).html(`${data[`plano${i}`]}`);
         $(`.${`valPlano${i}`}`).html(`${data[`valPlano${i}`]}`);
-    }
+    } 
     $('.rev').html(data.revenda);
     $('.ativo').html(data.ativo);
     $('.linkHome').html(data.linkHome);
@@ -40,6 +40,7 @@ $(document).ready(function() {
     $('.year').html(data.year);
     $('.nameRev').html(data.nameRev);
 })
+
 
 function mask(param){    
     const ddd = param.slice(0,2)
@@ -73,6 +74,37 @@ function payment(){
         Swal.fire("Olá Cliente!", "Ja fez um teste", "warning");
     }
     console.log(arrHost);
+   /*  Swal.fire({
+        title: "Selecione o Horário",
+        html: `
+    <div class="swal2-container">
+        <div style="display: flex; justify-content: center; align-items: center; width: 30%; margin-left:10px">
+        <label for="">Hora Inicial</label>
+            <select id="horainicioform" class="swal2-input" >
+                <option value="07:00">07:00</option>
+                <option value="08:00">08:00</option>
+                <option value="09:00">09:00</option>
+                <option value="10:00">10:00</option>
+                <option value="11:00">11:00</option>
+                <option value="12:00">12:00</option>
+                <option value="13:00">13:00</option>
+            </select>
+        
+        <label for="">Hora Final</label>
+            <select id="horainicioform"  class="swal2-input">
+                <option value="07:00">07:00</option>
+                <option value="08:00">08:00</option>
+                <option value="09:00">09:00</option>
+                <option value="10:00">10:00</option>
+                <option value="11:00">11:00</option>
+                <option value="12:00">12:00</option>
+                <option value="13:00">13:00</option>
+            </select>
+        </div>
+    </div>
+            `      
+    })
+ */
     
 
 }
