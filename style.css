@@ -1,0 +1,33 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    background-color: #bb3ef5;
+}
+main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.login{
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 50%;
+    border-radius: 10px;
+    border: 1px solid #fff9f9;
+    padding: 10px;
+    box-shadow: 5px 5px 5px #ef83fd;
+    margin-top: 30px;
+    margin-bottom: 20px;
+
+}
+
+.frmLogin{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}

@@ -1,45 +1,186 @@
-const data = {
-    nameRev: 'THPlayer Tv.',
-    icon: 'logo',
-    title: "THPlayer TV",
-    whatsapp: "85982161439",
-    revWhatsapp: "85987959500",
-    plano1: "PLANO MENSAL",
-    valPlano1: '30', 
-    plano2: "PLANO TRIMESTRAL",
-    valPlano2: '80', 
-    plano3: "PLANO SEMESTRAL",
-    valPlano3: '150',
-    revenda: '120',
-    ativo: '3,50',
-    linkHome: "THPlayer TV",
-    facebook: "https://www.facebook.com/profile.php?id=100091913952545",
-    year: new Date().getFullYear(),
-    linkPanel: "https://deyler.xyz/"
+$(document).ready(function() {  
+    
+  $('footer').html(` <div class="footer-lower container">
+  <div class="media-container-row">
+      <div class="col-sm-12">
+          <hr>
+      </div>
+  </div>
+  <div class="media-container-row mbr-white">
+      <div class="col-sm-12 copyright">
+          © <span class="year"></span> - Todos os Direitos Reservados - <span class="nameRev"></span>
+          <p class="mbr-text mbr-fonts-style display-7">
+             <!--  © <span class="year"></span> - Todos os Direitos Reservados - <span class="rev"></span> -->
+          </p>
+      </div>
+  </div>
+</div>
+</div>`);  
 
+$('.year').html(new Date().getFullYear())
+$('.btnEnviar').on('click', enviar)
+$('.btnEditar').on('click', editar)
+$('.btnLogar').on('click', logar)
+    
+})
+
+async function logar(e){
+    e.preventDefault()
+    const data = {
+        login: $('#login').val(),
+        password: $('#password').val()
+    }
+
+    const URL = 'http://localhost:5555/login';
+    $.ajax({
+        url: URL,
+        method: 'GET',
+        data: data,
+        success: function(data){
+            console.log(data);
+          if(data.length > 0){        
+            window.open('/painel-site.html')
+            window.close('/login.html')           
+            window.localStorage.setItem('id', data[0].id)
+            $('.idUser').attr('value',window.localStorage.getItem('id'))
+        }else{     
+            setTimeout(()=>{
+                window.location.reload('/login.html')
+            }, 2000)
+        } 
+    }
+})   
+    
 }
 
-$(document).ready(function() {
-    $('head').append(`<link rel="shortcut icon" href="assets/images/${data.icon}.png" type="image/x-icon">`)
-    $('title').html(data.title);
-    $('.payment').on('click', payment);
-    $('.panel').attr('href', data.linkPanel).attr('target', '_blank');
-    $('.wsp').attr("href", `https://api.whatsapp.com/send?phone=55${data.whatsapp}&text=Quero saber mais. venho do site.`);
-    $('.wspRev').attr("href", `https://api.whatsapp.com/send?phone=55${data.revWhatsapp}&text=Venho do site. Quero ser Revendedor.`);
-    $('.whatsapp').html( mask(data.whatsapp) );      
-    $('.revWhatsapp').html( mask(data.revWhatsapp) );      
-    for (let i = 1; i < 4; i++){
-        $(`.${`plano${i}`}`).html(`${data[`plano${i}`]}`);
-        $(`.${`valPlano${i}`}`).html(`${data[`valPlano${i}`]}`);
-    } 
-    $('.rev').html(data.revenda);
-    $('.ativo').html(data.ativo);
-    $('.linkHome').html(data.linkHome);
-    $('.btnTeste1').on('click', testeIPTV)
-    $('.facebook').attr('href', data.facebook);
-    $('.year').html(data.year);
-    $('.nameRev').html(data.nameRev);
-})
+async function enviar(e){
+      e.preventDefault();
+      const data = {
+        nameSite: $('#nameSite').val(),
+        //icon: 'logo',
+        title: $('#title').val(),
+        whatsapp: $('#whatsapp').val(),
+        whatsappRev: "85987959500",
+        plan1: $('#plan1').val(),
+        priceplan1: $('#priceplan1').val(), 
+        plan2: $('#plan2').val(),
+        priceplan2: $('#priceplan2').val(), 
+        plan3: $('#plan3').val(),
+        priceplan3: $('#priceplan3').val(),
+        pricereseller: '120',
+        priceactive: '3,50',
+        textHeader: $('#nameSite').val(),
+        facebook:$('#facebook').val(),
+        linkPanel: "https://deyler.xyz/"
+    }
+      const URL = 'http://localhost:5555/';
+      $.ajax({
+        url: URL,
+        method: 'POST',
+        data: data,
+        success: function(data){
+          console.log(data);
+        }
+      })
+ 
+}
+
+async function getData(e){
+    e.preventDefault();
+    const URL = "http://localhost:5555/"
+    const data = { id: localStorage.getItem("id")};
+    $.ajax({
+      url: URL,
+      method: 'GET',
+      data: data,
+      success: function(data){
+        $('title').html(data[0].title);
+        $('.namesite').html(data[0].namesite);
+        $('.linkHome').html(data[0].textheader);
+        $('.whatsapp').html( mask(data[0].whatsapp) );
+        $('.panel').attr('href', data[0].linkpanel).attr('target', '_blank');
+        for(let i=1;i<4;i++) {
+            $(`.${`plano${i}`}`).html(`${data[0][`plan${i}`]}`);
+            $(`.${`valPlano${i}`}`).html(`${data[0][`priceplan${i}`]}`);
+        }
+        $('.nameRev').html(data[0].namesite);
+        $('.facebook').attr('href', data[0].facebook);
+        $('.wspRev').html( mask(data[0].whatsapprev));
+        $('.revWhatsapp').attr('href', `https://web.whatsapp.com//send?phone=55${data[0].whatsapprev}&text=${data[0].whatsapp}-Venho do site. Quero ser revendedor!`);
+        $('.rev').html(data[0].pricereseller);
+        $('.ativo').html(data[0].priceactive);
+        $('.idUser').attr('value', data[0].id)
+        console.log(data[0].id)
+      }
+    })
+   
+}
+
+async function editar(e){
+    e.preventDefault();
+    const URL = "http://localhost:5555/update"
+    const data = {         
+        nameSite: $('#nameSite').val(),
+        //icon: 'logo',
+        title: $('#title').val(),
+        whatsapp: $('#whatsapp').val(),
+        whatsappRev: "85987959500",
+        plan1: $('#plan1').val(),
+        priceplan1: $('#priceplan1').val(), 
+        plan2: $('#plan2').val(),
+        priceplan2: $('#priceplan2').val(), 
+        plan3: $('#plan3').val(),
+        priceplan3: $('#priceplan3').val(),
+        pricereseller: '120',
+        priceactive: '3,50',
+        textHeader: $('#nameSite').val(),
+        facebook:$('#facebook').val(),
+        linkPanel: "https://deyler.xyz/",
+        idUser: localStorage.getItem("id")
+    };
+
+    $.ajax({
+      url: URL,
+      method: 'PATCH',
+      data: data,
+      success: function(data){
+        setTimeout(()=>{
+            window.location.reload('/login.html')
+            window.alert('Dados Alterados')
+        }, 4000)
+      }
+    })
+   
+}
+
+
+async function getDatas() {
+    const URL = "http://localhost:5555"
+    const request = await fetch(URL, {
+        method: 'GET',
+        headers: { 'Content-Type': 'application/json' },
+        data: $('.idUser').val()
+    })
+    const data = await request.json();
+    $('title').html(data[0].title);
+    $('.namesite').html(data[0].namesite);
+    $('.linkHome').html(data[0].textheader);
+    $('.whatsapp').html( mask(data[0].whatsapp) );
+    $('.panel').attr('href', data[0].linkpanel).attr('target', '_blank');
+    for(let i=1;i<4;i++) {
+        $(`.${`plano${i}`}`).html(`${data[0][`plan${i}`]}`);
+        $(`.${`valPlano${i}`}`).html(`${data[0][`priceplan${i}`]}`);
+    }
+    $('.nameRev').html(data[0].namesite);
+    $('.facebook').attr('href', data[0].facebook);
+    $('.wspRev').html( mask(data[0].whatsapprev));
+    $('.revWhatsapp').attr('href', `https://web.whatsapp.com//send?phone=55${data[0].whatsapprev}&text=${data[0].whatsapp}-Venho do site. Quero ser revendedor!`);
+    $('.rev').html(data[0].pricereseller);
+    $('.ativo').html(data[0].priceactive);
+    $('.idUser').attr('value', data[0].id)
+    console.log(data)
+
+}
 
 
 function mask(param){    
@@ -74,38 +215,7 @@ function payment(){
         Swal.fire("Olá Cliente!", "Ja fez um teste", "warning");
     }
     console.log(arrHost);
-   /*  Swal.fire({
-        title: "Selecione o Horário",
-        html: `
-    <div class="swal2-container">
-        <div style="display: flex; justify-content: center; align-items: center; width: 30%; margin-left:10px">
-        <label for="">Hora Inicial</label>
-            <select id="horainicioform" class="swal2-input" >
-                <option value="07:00">07:00</option>
-                <option value="08:00">08:00</option>
-                <option value="09:00">09:00</option>
-                <option value="10:00">10:00</option>
-                <option value="11:00">11:00</option>
-                <option value="12:00">12:00</option>
-                <option value="13:00">13:00</option>
-            </select>
-        
-        <label for="">Hora Final</label>
-            <select id="horainicioform"  class="swal2-input">
-                <option value="07:00">07:00</option>
-                <option value="08:00">08:00</option>
-                <option value="09:00">09:00</option>
-                <option value="10:00">10:00</option>
-                <option value="11:00">11:00</option>
-                <option value="12:00">12:00</option>
-                <option value="13:00">13:00</option>
-            </select>
-        </div>
-    </div>
-            `      
-    })
- */
-    
+   
 
 }
 
