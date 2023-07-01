@@ -37,10 +37,9 @@ async function logar(e){
         method: 'GET',
         data: data,
         success: function(data){
-            console.log(data);
           if(data.length > 0){        
-            window.open('/painel-site.html')
-            window.close('/login.html')           
+              window.close('/login.html')           
+              window.open('/painel-site.html')
             window.localStorage.setItem('id', data[0].id)
             $('.idUser').attr('value',window.localStorage.getItem('id'))
         }else{     
@@ -158,10 +157,11 @@ async function getDatas() {
     const URL = "http://localhost:5555"
     const request = await fetch(URL, {
         method: 'GET',
-        headers: { 'Content-Type': 'application/json' },
-        data: $('.idUser').val()
+        headers: { 'Content-Type': 'application/json' }
+       // data: $('.idUser').val()
     })
-    const data = await request.json();
+    const data = await request.json()
+    console.log(data)
     $('title').html(data[0].title);
     $('.namesite').html(data[0].namesite);
     $('.linkHome').html(data[0].textheader);

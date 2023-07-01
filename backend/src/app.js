@@ -19,9 +19,8 @@ app.use(
 );
 
 app.get('/', async (req, res) => {
-    //const params  = req.query;
-    //console.log(id)
-    if(req.query){
+
+    if(!req.query){
         const dados = await Connection.getData(req.query)
         return res.json(dados);
     }else{
@@ -37,21 +36,17 @@ app.get('/login', async (req, res) => {
 })
 
 app.post('/user', (req, res) => {
-    //const { name, title } = req.body;
-    Connection.createUser(req.body)
+    Connection.createUser(req.body);
     return res.json(req.body);
 })
 
 app.post('/', (req, res) => {
-    //const { name, title } = req.body;
-    Connection.create(req.body)
+    Connection.create(req.body);
     return res.json(req.body);
 })
 
 app.patch('/update', async (req, res) => {
-    //const { id, name, title } = req.body;
-    //const dados = await Connection.getData(id);
-    Connection.update(req.body)
+    Connection.update(req.body);
     return res.json({message:  'Alterado'});
 })
 
