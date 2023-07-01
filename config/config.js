@@ -1,6 +1,6 @@
 $(document).ready(function() {  
     
-  $('footer').html(` <div class="footer-lower container">
+  $('footer').append(` <div class="footer-lower container">
   <div class="media-container-row">
       <div class="col-sm-12">
           <hr>
