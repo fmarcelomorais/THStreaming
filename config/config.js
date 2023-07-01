@@ -31,15 +31,15 @@ async function logar(e){
         password: $('#password').val()
     }
 
-    const URL = 'http://localhost:5555/login';
+    const URL = 'https://backend-site-six.vercel.app/login';
     $.ajax({
         url: URL,
         method: 'GET',
         data: data,
         success: function(data){
           if(data.length > 0){        
-              window.close('/login.html')           
-              window.open('/painel-site.html')
+            window.close('/login.html')           
+            window.open('/painel-site.html')
             window.localStorage.setItem('id', data[0].id)
             $('.idUser').attr('value',window.localStorage.getItem('id'))
         }else{     
@@ -72,13 +72,13 @@ async function enviar(e){
         facebook:$('#facebook').val(),
         linkPanel: "https://deyler.xyz/"
     }
-      const URL = 'http://localhost:5555/';
+      const URL = 'https://backend-site-six.vercel.app/';
       $.ajax({
         url: URL,
         method: 'POST',
         data: data,
         success: function(data){
-          console.log(data);
+         swal('Cadastrado');
         }
       })
  
@@ -86,7 +86,7 @@ async function enviar(e){
 
 async function getData(e){
     e.preventDefault();
-    const URL = "http://localhost:5555/"
+    const URL = "https://backend-site-six.vercel.app/"
     const data = { id: localStorage.getItem("id")};
     $.ajax({
       url: URL,
@@ -108,8 +108,7 @@ async function getData(e){
         $('.revWhatsapp').attr('href', `https://web.whatsapp.com//send?phone=55${data[0].whatsapprev}&text=${data[0].whatsapp}-Venho do site. Quero ser revendedor!`);
         $('.rev').html(data[0].pricereseller);
         $('.ativo').html(data[0].priceactive);
-        $('.idUser').attr('value', data[0].id)
-        console.log(data[0].id)
+        $('.idUser').attr('value', data[0].id);
       }
     })
    
@@ -117,7 +116,7 @@ async function getData(e){
 
 async function editar(e){
     e.preventDefault();
-    const URL = "http://localhost:5555/update"
+    const URL = "https://backend-site-six.vercel.app/update"
     const data = {         
         nameSite: $('#nameSite').val(),
         //icon: 'logo',
@@ -144,9 +143,9 @@ async function editar(e){
       data: data,
       success: function(data){
         setTimeout(()=>{
-            window.location.reload('/login.html')
-            window.alert('Dados Alterados')
-        }, 4000)
+            swal('Dados Alterados');
+            window.location.reload('/login.html')            
+        }, 3000)
       }
     })
    
@@ -154,14 +153,12 @@ async function editar(e){
 
 
 async function getDatas() {
-    const URL = "http://localhost:5555"
+    const URL = "https://backend-site-six.vercel.app"
     const request = await fetch(URL, {
         method: 'GET',
         headers: { 'Content-Type': 'application/json' }
-       // data: $('.idUser').val()
     })
-    const data = await request.json()
-    console.log(data)
+    const data = await request.json();
     $('title').html(data[0].title);
     $('.namesite').html(data[0].namesite);
     $('.linkHome').html(data[0].textheader);
@@ -177,9 +174,7 @@ async function getDatas() {
     $('.revWhatsapp').attr('href', `https://web.whatsapp.com//send?phone=55${data[0].whatsapprev}&text=${data[0].whatsapp}-Venho do site. Quero ser revendedor!`);
     $('.rev').html(data[0].pricereseller);
     $('.ativo').html(data[0].priceactive);
-    $('.idUser').attr('value', data[0].id)
-    console.log(data)
-
+    $('.idUser').attr('value', data[0].id);
 }
 
 
